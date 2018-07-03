@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>testLeaf</title>
+</head>
+<body>
+<script type="text/javascript">
+var ws = new WebSocket('ws://127.0.0.1:3653')
+
+ws.onopen = function() {
+    // 发送 Hello 消息
+    ws.send(JSON.stringify({Hello: {
+        Name: 'leaf'
+    }}))
+}
+
+ws.onmessage = function (msg) {
+    console.log('!!!', msg.data)
+    alert(msg.data);
+}
+
+</script>
+</body>
+</html>
